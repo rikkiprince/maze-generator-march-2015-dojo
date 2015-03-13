@@ -29,19 +29,16 @@ def drawMaze(matrix, w):
 
 matrix = [[randint(-1,1) for x in xrange(10)] for x in xrange(10)]
 
-displayArray(matrix)
+#displayArray(matrix)
+def gui():
+	window = Tk()
 
-window = Tk()
+	width = (len(matrix) * size) + (2 * ox)
+	height = (len(matrix[0]) * size) + (2 * oy)
 
-width = (len(matrix) * size) + (2 * ox)
-height = (len(matrix[0]) * size) + (2 * oy)
+	w = Canvas(window, width=width, height=height)
+	w.pack()
 
-w = Canvas(window, width=width, height=height)
-w.pack()
+	drawMaze(matrix, w)
 
-drawMaze(matrix, w)
-
-window.mainloop()
-
-
-
+	window.mainloop()
